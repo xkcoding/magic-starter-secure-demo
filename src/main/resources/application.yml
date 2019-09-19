@@ -4,3 +4,6 @@ secure:
     - path: /interceptor
       method: GET
       expression: "hasPermission('user::list::delete')"
+    - path: /method
+      method: GET
+      expression: "anon()"
