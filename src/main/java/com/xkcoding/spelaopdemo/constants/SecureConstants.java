@@ -18,4 +18,14 @@ public interface SecureConstants {
      * Bearer header
      */
     String BEARER = "Bearer ";
+
+    /**
+     * request参数名
+     */
+    String REQUEST = "request";
+
+    /**
+     * response参数名
+     */
+    String RESPONSE = "response";
 }

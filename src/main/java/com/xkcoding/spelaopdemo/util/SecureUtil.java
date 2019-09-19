@@ -78,14 +78,14 @@ public class SecureUtil {
     private String getTokenFromRequest(HttpServletRequest request) {
         String header = request.getHeader(SecureConstants.AUTHORIZATION_HEADER);
         if (StringUtils.isEmpty(header)) {
-            throw new SecureException("没有找到名为Authorization的header");
+            throw new SecureException("Need Login!");
         }
         if (header.length() <= SEVEN) {
-            throw new SecureException("token非法，长度 <= 7");
+            throw new SecureException("Token invalid，length <= 7!");
         }
 
         if (!header.startsWith(SecureConstants.BEARER)) {
-            throw new SecureException("token必须以'Bearer '开头");
+            throw new SecureException("Token invalid, must be started with 'Bearer '!");
         }
 
         return header.substring(SEVEN);
@@ -99,7 +99,7 @@ public class SecureUtil {
     private HttpServletRequest getRequest() {
         RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
         if ((requestAttributes == null)) {
-            throw new SecureException("当前不是web环境");
+            throw new SecureException("Not Web Environment!");
         }
         return ((ServletRequestAttributes) requestAttributes).getRequest();
     }
