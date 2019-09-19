@@ -1,2 +1,6 @@
 secure:
   white-list: /login
+  rule-list:
+    - path: /interceptor
+      method: GET
+      expression: "hasPermission('user::list::delete')"

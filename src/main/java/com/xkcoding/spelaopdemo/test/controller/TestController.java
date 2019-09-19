@@ -82,4 +82,9 @@ public class TestController {
     public SecureUser testGetUserInfo(@CurrentUser SecureUser user) {
         return user;
     }
+
+    @GetMapping("/interceptor")
+    public SecureUser interceptor(@CurrentUser SecureUser user) {
+        return user;
+    }
 }
