@@ -1,6 +1,6 @@
 package com.xkcoding.spelaopdemo.support;
 
-import com.xkcoding.spelaopdemo.model.User;
+import com.xkcoding.spelaopdemo.model.SecureUser;
 import com.xkcoding.spelaopdemo.util.SecureUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,7 +71,7 @@ public class SecureExpressionHandler {
      * @return 满足其中一个权限，返回 true，反之 false
      */
     public boolean hasAnyPermission(String... permissions) {
-        User currentUser = secureUtil.getCurrentUser();
+        SecureUser currentUser = secureUtil.getCurrentUser();
         if (currentUser == null) {
             return false;
         }

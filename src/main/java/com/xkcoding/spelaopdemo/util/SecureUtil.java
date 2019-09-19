@@ -4,7 +4,7 @@ import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.convert.Convert;
 import com.xkcoding.spelaopdemo.constants.SecureConstants;
 import com.xkcoding.spelaopdemo.exception.SecureException;
-import com.xkcoding.spelaopdemo.model.User;
+import com.xkcoding.spelaopdemo.model.SecureUser;
 import com.xkcoding.spelaopdemo.support.UserContextHolder;
 import io.jsonwebtoken.Claims;
 import lombok.RequiredArgsConstructor;
@@ -35,9 +35,9 @@ public class SecureUtil {
      *
      * @return 当前用户信息
      */
-    public User getCurrentUser() {
-        User user = UserContextHolder.get();
-        if (user == null) {
+    public SecureUser getCurrentUser() {
+        SecureUser secureUser = UserContextHolder.get();
+        if (secureUser == null) {
             // 从 token 里获取
             HttpServletRequest request = getRequest();
             String token = getTokenFromRequest(request);
@@ -47,10 +47,10 @@ public class SecureUtil {
                 return null;
             }
 
-            user = getUserFromToken(token);
-            UserContextHolder.set(user);
+            secureUser = getUserFromToken(token);
+            UserContextHolder.set(secureUser);
         }
-        return user;
+        return secureUser;
     }
 
     /**
@@ -60,13 +60,13 @@ public class SecureUtil {
      * @return 用户信息
      */
     @SuppressWarnings("unchecked")
-    private User getUserFromToken(String token) {
+    private SecureUser getUserFromToken(String token) {
         Claims claims = jwtUtil.getClaimsFromToken(token);
         Object userId = claims.get(JwtUtil.USER_ID);
         Object username = claims.get(JwtUtil.USERNAME);
         Object permissions = claims.get(JwtUtil.PERMISSIONS);
 
-        return User.builder().id(Convert.toLong(userId)).username((String) username).permissions(CollUtil.newHashSet((List<String>) permissions)).build();
+        return SecureUser.builder().id(Convert.toLong(userId)).username((String) username).permissions(CollUtil.newHashSet((List<String>) permissions)).build();
     }
 
     /**

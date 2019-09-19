@@ -1,7 +1,7 @@
 package com.xkcoding.spelaopdemo.util;
 
 import com.xkcoding.spelaopdemo.config.properties.SecureProperties;
-import com.xkcoding.spelaopdemo.model.User;
+import com.xkcoding.spelaopdemo.model.SecureUser;
 import io.jsonwebtoken.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -65,14 +65,14 @@ public class JwtUtil {
     /**
      * 为指定用户生成token
      *
-     * @param user 用户信息
+     * @param secureUser 用户信息
      * @return token
      */
-    public String generateToken(User user) {
+    public String generateToken(SecureUser secureUser) {
         Map<String, Object> claims = new HashMap<>(3);
-        claims.put(USER_ID, user.getId());
-        claims.put(USERNAME, user.getUsername());
-        claims.put(PERMISSIONS, user.getPermissions());
+        claims.put(USER_ID, secureUser.getId());
+        claims.put(USERNAME, secureUser.getUsername());
+        claims.put(PERMISSIONS, secureUser.getPermissions());
         Date createdTime = new Date();
         Date expirationTime = getExpirationTime();
 

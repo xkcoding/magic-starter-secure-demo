@@ -1,8 +1,9 @@
 package com.xkcoding.spelaopdemo.test.controller;
 
 import cn.hutool.core.collection.CollUtil;
+import com.xkcoding.spelaopdemo.annotation.CurrentUser;
 import com.xkcoding.spelaopdemo.annotation.Secure;
-import com.xkcoding.spelaopdemo.model.User;
+import com.xkcoding.spelaopdemo.model.SecureUser;
 import com.xkcoding.spelaopdemo.util.JwtUtil;
 import com.xkcoding.spelaopdemo.util.SecureUtil;
 import lombok.RequiredArgsConstructor;
@@ -28,11 +29,11 @@ public class TestController {
     @Secure("anon()")
     @GetMapping("/login")
     public String login() {
-        User user = new User();
-        user.setId(1L);
-        user.setUsername("xkcoding");
-        user.setPermissions(CollUtil.newHashSet("user::list::add", "user::list::delete"));
-        return jwtUtil.generateToken(user);
+        SecureUser secureUser = new SecureUser();
+        secureUser.setId(1L);
+        secureUser.setUsername("xkcoding");
+        secureUser.setPermissions(CollUtil.newHashSet("user::list::add", "user::list::delete"));
+        return jwtUtil.generateToken(secureUser);
     }
 
     @Secure("anon()")
@@ -74,5 +75,11 @@ public class TestController {
     @GetMapping("/user/select")
     public String testPermissionSelect() {
         return "has " + secureUtil.getCurrentUser().getPermissions() + " permission";
+    }
+
+    @Secure("hasLogin()")
+    @GetMapping("/user")
+    public SecureUser testGetUserInfo(@CurrentUser SecureUser user) {
+        return user;
     }
 }
