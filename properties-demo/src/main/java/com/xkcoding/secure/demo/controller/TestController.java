@@ -1,4 +1,4 @@
-package demo.controller;
+package com.xkcoding.secure.demo.controller;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.lang.Dict;

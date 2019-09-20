@@ -1,4 +1,4 @@
-package demo.handler;
+package com.xkcoding.secure.demo.handler;
 
 import com.xkcoding.magic.secure.exception.SecureException;
 import lombok.extern.slf4j.Slf4j;
