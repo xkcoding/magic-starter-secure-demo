@@ -19,7 +19,7 @@ public class SecureConfig {
     @Bean
     public SecureRuleRegistry secureRuleRegistry() {
         return new SecureRuleRegistry()
-                .addRule("/login", HttpMethod.GET, "anon()")
+                .exclude("/login")
                 .addRule("/me", HttpMethod.GET,"hasLogin()")
                 .addRule("/**", HttpMethod.ANY, "@test.hasPermission(#request,#response)");
     }
