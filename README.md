@@ -1,4 +1,4 @@
-# magic-stater-secure-demo
+# magic-starter-secure-demo
 
 > 演示极简权限控制框架的使用
 

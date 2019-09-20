@@ -10,7 +10,7 @@
   </parent>
 
   <groupId>com.xkcoding</groupId>
-  <artifactId>magic-stater-secure-demo</artifactId>
+  <artifactId>magic-starter-secure-demo</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
   <name>${project.artifactId}</name>
