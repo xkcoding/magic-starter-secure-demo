@@ -10,12 +10,14 @@
   </parent>
 
   <groupId>com.xkcoding</groupId>
-  <artifactId>spel-aop-demo</artifactId>
+  <artifactId>magic-stater-secure-demo</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
-  <name>spel-aop-demo</name>
+  <name>${project.artifactId}</name>
   <packaging>pom</packaging>
-  <description>Demo project for Spring Boot</description>
+  <description>
+    演示极简权限控制框架的使用
+  </description>
 
   <modules>
     <module>annotation-demo</module>
