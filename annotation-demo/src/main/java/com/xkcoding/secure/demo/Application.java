@@ -1,4 +1,4 @@
-package com.xkcoding.spelaopdemo;
+package com.xkcoding.secure.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,13 +9,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * </p>
  *
  * @author yangkai.shen
- * @date Created in 2019/9/18 11:37
+ * @date Created in 2019/9/20 10:56
  */
 @SpringBootApplication
-public class SpelAopDemoApplication {
-
+public class Application {
     public static void main(String[] args) {
-        SpringApplication.run(SpelAopDemoApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
-
 }

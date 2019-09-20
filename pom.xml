@@ -17,6 +17,9 @@
   <packaging>pom</packaging>
   <description>Demo project for Spring Boot</description>
 
+  <modules>
+    <module>annotation-demo</module>
+  </modules>
 
   <properties>
     <java.version>1.8</java.version>

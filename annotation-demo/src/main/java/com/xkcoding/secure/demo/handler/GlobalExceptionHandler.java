@@ -1,6 +1,6 @@
-package com.xkcoding.spelaopdemo.test.handler;
+package com.xkcoding.secure.demo.handler;
 
-import com.xkcoding.spelaopdemo.exception.SecureException;
+import com.xkcoding.magic.secure.exception.SecureException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
