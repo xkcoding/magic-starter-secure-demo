@@ -5,3 +5,4 @@
 - annotation-demo: 基于注解 + SpEL 的权限配置
 - properties-demo: 基于配置文件的权限配置
 - configuration-demo: 基于代码的权限配置
+- custom-secure-handler: 自定义权限控制表达式处理

@@ -23,6 +23,7 @@
     <module>annotation-demo</module>
     <module>properties-demo</module>
     <module>configuration-demo</module>
+    <module>custom-secure-handler</module>
   </modules>
 
   <properties>
