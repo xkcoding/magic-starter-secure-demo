@@ -1,10 +1,12 @@
-secure:
-  white-list: /login
-  rule-list:
-    - path: /class
-      expression: "anon()"
-    - path: /me
-      method: GET
-      expression: "hasLogin()"
-    - path: /spring
-      expression: "@test.hasPermission(#request,#response)"
+magic:
+  secure:
+    enabled: true
+    white-list: /login
+    rule-list:
+      - path: /class
+        expression: "anon()"
+      - path: /me
+        method: GET
+        expression: "hasLogin()"
+      - path: /spring
+        expression: "@test.hasPermission(#request,#response)"
